@@ -1,26 +1,25 @@
 package com.example.demo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Note {
-    private static int idCounter = 0;
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String content;
 
-
-    public Note() {
-        this.id = ++idCounter;
-    }
-
-
-    public Note(String title, String content) {
-        this.id = ++idCounter;
-        this.title = title;
-        this.content = content;
-    }
-
-
-    public long getId() {
+    // Getters and setters
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -37,18 +36,5 @@ public class Note {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Note{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
-    }
-
-    public void setId(long id) {
     }
 }
