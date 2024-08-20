@@ -7,6 +7,7 @@ import java.util.List;
 
 @Service
 public class NoteService {
+
     private final NoteRepository noteRepository;
 
     @Autowired
@@ -26,8 +27,8 @@ public class NoteService {
         noteRepository.deleteById(id);
     }
 
-    public void update(Note note) {
-        noteRepository.save(note);
+    public Note update(Note note) {
+        return noteRepository.save(note);
     }
 
     public Note getById(long id) {
